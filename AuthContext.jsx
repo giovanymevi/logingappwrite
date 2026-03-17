@@ -16,8 +16,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (email, password, name) => {
-    await account.create(ID.unique(), email, password, name);
-    await login(email, password);
+    try {
+      await account.create(ID.unique(), email, password, name);
+      await login(email, password);
+      const accountDetails = await account.get();
+      return { success: true, user: accountDetails };
+    } catch (error) {
+      return { success: false, error: error.message || 'Error al registrarse' };
+    }
   };
 
   const logout = async () => {
