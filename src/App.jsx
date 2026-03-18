@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from './hooks/useAuth';
 import Login from './components/Login';
 import Register from './components/Register';
-import UserProfile from './components/UserProfile';
+import Home from './pages/Home';
 import './App.css';
 
 function App() {
@@ -33,12 +33,10 @@ function App() {
 
   return (
     <div className="app" style={themeStyles}>
-      <main className="app-main">
-        {user ? (
-          <div className="authenticated-content">
-            <UserProfile />
-          </div>
-        ) : (
+      {user ? (
+        <Home />
+      ) : (
+        <main className="app-main">
           <div className="auth-section">
             <div className="auth-toggle">
               <button
@@ -61,8 +59,8 @@ function App() {
               <Register />
             )}
           </div>
-        )}
-      </main>
+        </main>
+      )}
     </div>
   );
 }
