@@ -8,8 +8,8 @@
 }
 
 .profile-header {
-  background: linear-gradient(135deg, #f02e65 0%, #d11c4f 100%);
-  color: white;
+  background: linear-gradient(135deg, #ece908 0%, #f1ce06 100%);
+  color: rgb(14, 6, 6);
   padding: 2rem;
   text-align: center;
 }
